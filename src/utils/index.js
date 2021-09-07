@@ -1,6 +1,13 @@
 exports.goodOrBad = (likeVar, movie) => {
     if (likeVar === "good") {
-        console.log(`I think ${movie} is good`)
+    //    console.log(`I think ${movie} is good`)
+
+    const stringyObj = JSON.stringify({
+        name: movie,
+        like: likeVar,
+    })
+    fs.writeFileSync("./storage.json", stringyObj)
+    console.log(fs.readFileSync("./storage.json"))
     } else if (likeVar === "bad"){
         console.log(` I think ${movie} is bad`)
     } else{
